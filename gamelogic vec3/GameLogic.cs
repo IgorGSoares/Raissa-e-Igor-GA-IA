@@ -14,8 +14,6 @@ public class GameLogic : MonoBehaviour
     float minX, minY, maxX, maxY;
     int selectedId;
 
-    
-
     // Start is called before the first frame update
     public GameObject snakePrefab;
     void Start()
@@ -38,7 +36,7 @@ public class GameLogic : MonoBehaviour
             Vector3 randomPosition;
             if (i == selectedId)
             {
-                randomPosition = new Vector3(0.0f, 0.0f, 0.0f);
+                randomPosition = new Vector3(0.0f,0.0f,0.0f);
             }
             else
             {
@@ -52,7 +50,7 @@ public class GameLogic : MonoBehaviour
                 0
             );
             }
-
+ 
             GameObject newSnake = Instantiate(snakePrefab, randomPosition, Quaternion.identity) as GameObject;
             newSnake.name = "SnakeBot" + i.ToString();
 
@@ -105,7 +103,6 @@ public class GameLogic : MonoBehaviour
             GameObject newOrb = Instantiate(orbPreFab, randomOrbPos, Quaternion.identity);
             GameObject orbParent = GameObject.Find("Orbs");
             newOrb.transform.parent = orbParent.transform;
-
         }
 
         StartCoroutine("SpawnXOrbsEveryYSeconds", OrbSpawnTime);
